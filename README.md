@@ -27,9 +27,9 @@ O ReactJS foi feito para rodar do lado do browser do usuário (Client) e carrega
 <br><br>
 <pre>
 <h2>🚀 Baixando aplicação:</h2><span class="pl-c"><span class="pl-c">#</span> Clone o projeto à partir do meu repositório GitHub:</span>
-$ git clone https://github.com/josethiagodev/ignite_chapter3_fundamentos_nextjs.git<br>
+$ git clone https://github.com/josethiagodev/ignite_chapter3_backend_no_frontend<br>
 <span class="pl-c"><span class="pl-c">#</span> Entre no diretório via terminal:</span>
-$ <span class="pl-c1">cd</span> ignite_chapter3_fundamentos_nextjs
+$ <span class="pl-c1">cd</span> ignite_chapter3_backend_no_frontend
 <span class="pl-c"><span class="pl-c">#</span> Para abrir o projeto no terminal, use o comando:</span>
 $ <span class="pl-c1">code .</span>
 <br>
@@ -39,5 +39,11 @@ $ yarn
 <span class="pl-c">#</span> Inicie a aplicação usando o seguinte comando no terminal:</span>
 $ yarn dev<br>
 # Se caso a aplicação não abrir automáticamente, copie e cole o link abaixo em qualquer navegador:<br>$ http://localhost:3000<br>
-# Pronto, agora é só testar!
+<h2>🚀 Rodando os webhook events do Stripe:</h2><span class="pl-c">#</span> Rode os seguintes comando em outro terminal:</span><br>
+# 01 - Ouvindo e listando os eventos
+$ stripe listen<br>
+# 02 - Encaminhar eventos recebidos p/ o servidor
+$ stripe listen --forward-to localhost:3000/api/webhooks
+# 03 - Acesse a aplicação, faça login via Github e faça um pagamento via Stripe
+$ http://localhost:3000
 </pre>

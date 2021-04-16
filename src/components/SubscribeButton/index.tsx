@@ -1,4 +1,7 @@
 import { useSession, signIn } from 'next-auth/client';
+import { useRouter } from 'next/router';
+
+// Services API
 import { api } from '../../services/api';
 import { getStripeJs } from '../../services/stripe-js';
 
@@ -10,12 +13,18 @@ interface SubscribeButtonProps {
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
   // Sessão de usuário lodago
   const [session] = useSession();
+  const router = useRouter();
 
   // Função executada no clique do botão 'Quero assinar'
-  async function handleSubscribe() {
+  const handleSubscribe = async () => {
     // Se não existir sessão do usuário, redirecionar para autenticação Github
     if (!session) {
       signIn('github')
+      return;
+    }
+
+    if (session.activeSubscription) {
+      router.push('/posts');
       return;
     }
 
@@ -28,11 +37,14 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
 
       const stripe = await getStripeJs()
 
-      await stripe.redirectToCheckout({ sessionId })
+      await stripe.redirectToCheckout({
+        sessionId
+      })
+      
     } catch (err) {
       alert(err.message)
     }
-  }
+  };
 
   return (
     <button 

@@ -1,0 +1,131 @@
+.pageNews { max-width: 100%; height: auto; padding: 0; }
+
+.pageNews .containerCategories {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  max-width: 1200px; 
+  height: auto; 
+  margin: 2.25rem auto; 
+  padding: 0 1.25rem;
+
+  .itemCategory {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: var(--gray-700);
+    border-radius: 0.5rem;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      cursor: pointer;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0.8rem 0;
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--cyan-500);
+        color: var(--cyan-900);
+      }
+
+      .tagCategory {
+        width: 100%;
+        height: auto;
+        margin-top: 0.3rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: normal;
+       }
+    }
+  }
+}
+
+.pageNews ul.contentNews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto 0 auto;
+  padding: 0 1.25rem;
+
+  li.itemNews {
+    display: block;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 0;
+    padding: 1.85rem;
+    text-align: left;
+    border: 1px solid var(--gray-700);
+    border-radius: 0.5rem;
+}
+
+  a {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: auto;
+    text-decoration: none;
+
+    h2 {
+      display: block;
+      width: 100%;
+      height: auto;
+      font-size: 1.6rem;
+      line-height: normal;
+      color: var(--white);
+    }
+
+    p {
+      display: block;
+      width: 100%;
+      height: auto;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 400;
+      line-height: 1.4rem;
+      margin: 0;
+    }
+
+    .infoNews {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: auto;
+    
+      time {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: auto;
+        margin: 1rem 1rem 1rem 0;
+        padding: 0.5rem 1rem;
+        color: var(--white);
+        font-size: 0.75rem;
+        font-weight: 500;
+        font-style: italic;
+        border-radius: 1rem;
+        background-color: var(--gray-700);
+    
+        time:first-child { margin-right: 0; }
+      }
+    }
+  }
+
+  a:hover h2 { 
+    color: var(--cyan-500);
+  }
+}
